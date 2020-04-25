@@ -1,0 +1,36 @@
+#error
+{
+  color:red;
+}
+
+
+h4,.container,label{
+	color: #ffffff;
+}
+
+.container {
+	
+
+	padding: 40px;
+
+
+	
+}
+
+.field-icon {
+  float: right;
+  margin-left: -25px;
+  margin-top: -25px;
+  position: relative;
+  z-index: 2;
+}
+
+section {
+	background-image: linear-gradient(rgba(0, 0, 0, 0.43),
+	rgba(0, 0, 0, 0.43)), url("../../../assets/road.jpg");
+	background-position: center;
+	background-size: cover;
+	height : 100vh;
+	background-attachment: fixed;
+	
+}
