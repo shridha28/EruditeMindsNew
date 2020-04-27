@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import {Router, ActivatedRoute} from '@angular/router';
 import {DataService} from '../../../shared/services/data-service.service';
 import {MatDialog,MAT_DIALOG_DATA,MatDialogRef} from '@angular/material/dialog';
-
+import {environment} from '../../../../environments/environment'
 
 
 @Component({
@@ -29,7 +29,7 @@ import {MatDialog,MAT_DIALOG_DATA,MatDialogRef} from '@angular/material/dialog';
 
     onClick():void{
 
-     let url="http://localhost:8787/forgotPassword";
+     let url=`${environment.Url}/forgotPassword`;
 
      this.http.post(url,this.data.emailid).subscribe(
       res =>  {

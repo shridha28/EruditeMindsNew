@@ -6,7 +6,7 @@
     import { HttpClient,HttpHeaders, HttpParams } from '@angular/common/http';
     import {Router, ActivatedRoute} from '@angular/router';
     import {DataService} from '../../../shared/services/data-service.service';
-
+    import {environment} from '../../../../environments/environment'
 
     @Component({
       selector: 'app-reset',
@@ -42,7 +42,7 @@
           let params = new HttpParams();
           params = params.append('code', this.code);
           params = params.append('emailId', this.emailid);
-          let url="http://localhost:8787/resetform";
+          let url=`${environment.Url}/resetform`;
           this.http.get(url,{params:params}).subscribe(
             res =>  {
               this.response = JSON.parse(JSON.stringify(res));
@@ -64,7 +64,7 @@
           this.resetPassword.emailid=this.emailid;
           console.log(this.resetPassword);
 
-          let url = "http://localhost:8787/reset";
+          let url = `${environment.Url}/reset`;
           this.http.post(url,this.resetPassword).subscribe(
             res =>  {
               this.response = JSON.parse(JSON.stringify(res));

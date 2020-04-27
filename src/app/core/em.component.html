@@ -1,8 +1,3 @@
-<!-- <div [@routeAnimations]="prepareRoute(outlet)" 
-class="container">
-<app-navigation></app-navigation>
-<router-outlet #outlet="outlet"></router-outlet>
-</div> -->
 <!doctype html>
 <html lang="en">
          <head>
@@ -16,14 +11,16 @@ class="container">
                         
                     <div class="row">
                             <img src="./../../assets/horse.JPG" class="logo"> 
-                            <a href="/"><h1 class="logo">ERUDITE MINDS</h1></a>
-                       <ul class="main-nav">
+                            <a href="/"><h1 style="font-family: 'Comic Sans MS', 'cursive', 'sans-serif';
+                              font-size: 30px;
+                              font-weight: 300; color:goldenrod" class="logo">ERUDITE MINDS</h1></a>
+                       <ul class="main-nav" style="text-align: right;">
                       
                            
-                          <li><a routerLink="/wdwdo">What do we do</a></li>
-                          <li><a href="#">Tutorials</a></li>
+                          <li><a routerLink="/wdwdo" style="font-size: 20px;">What do we do</a></li>
+                          <li><a href="#" style="font-size: 20px;">Tutorials</a></li>
                           <li class="nav-item active">
-                           <a class="nav-link" routerLink="/loginsignup" routerLinkActive="active">SignUp</a>
+                           <a  style="font-size: 20px;" class="nav-link" routerLink="/loginsignup" routerLinkActive="active">SignUp</a>
                          </li>
                        </ul>
                     </div>
@@ -33,8 +30,3 @@ class="container">
   
          </body>
 </html> 
-
-
-
-
-

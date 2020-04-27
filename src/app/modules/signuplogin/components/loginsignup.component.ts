@@ -5,7 +5,7 @@ import {DataService} from '../../../shared/services/data-service.service';
 import {MatDialog} from '@angular/material/dialog';
 import {ForgotPasswordDialog} from './forgotpassword.component';
 import {LoginsignupService} from '../../../shared/services/loginsignup.service';
-
+import{environment} from '../../../../environments/environment'
 
 @Component({
   
@@ -18,6 +18,7 @@ export class LoginsignupComponent implements OnInit {
      authenticated:boolean;
      toggle1: boolean = false;
      toggle2: boolean = false;
+     toggle3: boolean = false;
 
   signupModel:SignUpViewModel={
     username:'',
@@ -38,7 +39,7 @@ export class LoginsignupComponent implements OnInit {
     }
 
   login():void{
-    let url = "http://localhost:8787/api/login";
+    let url = `${environment.Url}/api//login`;
     const headers = new HttpHeaders(this.loginModel ? {
       authorization : 'Basic ' + btoa(this.loginModel.emailId + ':' + this.loginModel.password)
   } : {});
@@ -63,7 +64,7 @@ export class LoginsignupComponent implements OnInit {
      });
    }
 
-  public showPassword(input_password, num) {
+   public showPassword(input_password, num) {
     if(input_password.type=='password') {
       input_password.type = 'text';
     } else {
@@ -71,8 +72,10 @@ export class LoginsignupComponent implements OnInit {
     }
     if(num==1) {
       this.toggle1 = !this.toggle1;
-    } else {
+    } else if(num==2){
       this.toggle2 = !this.toggle2;
+    } else {
+      this.toggle3 = !this.toggle3;
     }
 
   }
