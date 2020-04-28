@@ -1,9 +1,9 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import {Router, ActivatedRoute} from '@angular/router';
 import {DataService} from '../../../shared/services/data-service.service';
 import {MatDialog,MAT_DIALOG_DATA,MatDialogRef} from '@angular/material/dialog';
-import {environment} from '../../../../environments/environment'
+import {environment} from '../../../../environments/environment';
+import {HttpService} from '../../../shared/services/http.service';
 
 
 @Component({
@@ -19,8 +19,8 @@ import {environment} from '../../../../environments/environment'
     constructor(
       public dialogRef: MatDialogRef<ForgotPasswordDialog>,
       private router: Router, private _route:ActivatedRoute,
-      @Inject(MAT_DIALOG_DATA) public data: DialogData,private http:HttpClient,
-      private transferService:DataService) {
+      @Inject(MAT_DIALOG_DATA) public data: DialogData,
+      private transferService:DataService,private httpService:HttpService) {
       }
 
     onNoClick(): void {
@@ -31,7 +31,7 @@ import {environment} from '../../../../environments/environment'
 
      let url=`${environment.Url}/forgotPassword`;
 
-     this.http.post(url,this.data.emailid).subscribe(
+     this.httpService.post(url,this.data.emailid).subscribe(
       res =>  {
      this.response = JSON.parse(JSON.stringify(res));
      this.transferService.setData(this.data.emailid);

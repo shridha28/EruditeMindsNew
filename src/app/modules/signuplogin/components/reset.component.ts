@@ -7,7 +7,7 @@
     import {Router, ActivatedRoute} from '@angular/router';
     import {DataService} from '../../../shared/services/data-service.service';
     import {environment} from '../../../../environments/environment'
-
+    import {HttpService} from '../../../shared/services/http.service';
     @Component({
       selector: 'app-reset',
       templateUrl: '../pages/reset.component.html',
@@ -29,7 +29,7 @@
         emailid:''
       }
 
-      constructor(private transferService:DataService,private http:HttpClient,
+      constructor(private transferService:DataService,private httpService:HttpService,
         private router: Router){
           this.emailid = transferService.getData();
         }
@@ -42,8 +42,10 @@
           let params = new HttpParams();
           params = params.append('code', this.code);
           params = params.append('emailId', this.emailid);
+
           let url=`${environment.Url}/resetform`;
-          this.http.get(url,{params:params}).subscribe(
+          
+          this.httpService.getWithParams(url,params).subscribe(
             res =>  {
               this.response = JSON.parse(JSON.stringify(res));
               if(this.response.error==null || this.response.error=="")
@@ -65,7 +67,7 @@
           console.log(this.resetPassword);
 
           let url = `${environment.Url}/reset`;
-          this.http.post(url,this.resetPassword).subscribe(
+          this.httpService.post(url,this.resetPassword).subscribe(
             res =>  {
               this.response = JSON.parse(JSON.stringify(res));
               if(this.response.error==null || this.response.error=="")

@@ -2,8 +2,11 @@
 
 section {
 	
+	background-color: black;
+	background-position: center;
 	background-size: cover;
-	height : 100vh;
+	height : 70 vh;
+	
 	
 	
 }

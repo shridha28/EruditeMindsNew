@@ -6,14 +6,14 @@
           <ng-template ngbSlide>
                   <ng-template ngbSlide>
                           <div class="picsum-img-wrapper">
-                            <img style="border-radius: 25px;" [src]="images[0]" alt="Random third slide" height="400" width="1060">
+                            <img class="w3-animate-fading" style="border-radius: 25px;" [src]="images[0]" alt="Random third slide" height="500" width="1060">
                           </div>
                           <div class="carousel-caption">
                             <h2 style="color:black;">Learning never exhausts the mind.</h2>
                           </div>
                         </ng-template> 
                   <div class="picsum-img-wrapper">
-                    <img style="border-radius: 25px;" [src]="images[1]" alt="Random second slide" height="400" width="1060">
+                    <img class="w3-animate-fading"  style="border-radius: 25px;" [src]="images[1]" alt="Random second slide" height="500" width="1060">
                   </div>
                   <div class="carousel-caption">
                     <!--‘All the world is a laboratory to the inquiring mind.'-->
@@ -23,7 +23,7 @@
                 </ng-template>
                 <ng-template ngbSlide>
                   <div class="picsum-img-wrapper">
-                    <img style="border-radius: 25px;" [src]="images[2]" alt="Random third slide" height="400" width="1060">
+                    <img class="w3-animate-fading"  style="border-radius: 25px;" [src]="images[2]" alt="Random third slide" height="500" width="1060">
                   </div>
                   <div class="carousel-caption">
                     <h2 style="color:black;">To attain knowledge, add things everyday</h2>
@@ -42,10 +42,35 @@
   </div>
   
   <section id="section2">
-         
-          <h2>Need to write some content here</h2>
-              
-              
+      <div class="container">
+          <h2>Browse through the tutorials and start learning!!</h2>
+          <div class="carousel slide" data-ride="carousel">
+              <div class="carousel-inner">
+                  <div class="carousel-item active">
+                      <div class="row">
+                          <div class="card" style="width: 18rem;">
+                              <img src="..." class="card-img-top" alt="...">
+                              <div class="card-body">
+                                <h5 class="card-title">Card title</h5>
+                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                                <a href="#" class="btn btn-primary">Go somewhere</a>
+                              </div>
+                            </div>
+
+                          <div class="col-sm"><img class="d-block w-100" src="//placehold.it/1200x600/ccff00" alt="2 slide"></div>
+                          <div class="col-sm"><img class="d-block w-100" src="//placehold.it/1200x600" alt="3 slide"></div>
+                      </div>
+                  </div>
+                  <div class="carousel-item">
+                      <div class="row">
+                          <div class="col-sm"><img class="d-block w-100" src="//placehold.it/1200x600/ccff00" alt="4 slide"></div>
+                          <div class="col-sm"><img class="d-block w-100" src="//placehold.it/1200x600/444" alt="5 slide"></div>
+                          <div class="col-sm"><img class="d-block w-100" src="//placehold.it/1200x600/ddd" alt="6 slide"></div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+        </div>      
       </section>
   
   
