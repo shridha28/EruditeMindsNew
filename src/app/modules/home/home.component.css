@@ -25,3 +25,23 @@ section {
     z-index:-100;
 	padding: 40px;	
 }
+img {
+	border-radius: 25px;
+	height:400px; 
+	width:1060px;
+}
+
+#imgGit {
+	height:200px;
+	width:200px;
+	border-radius: 50%;
+
+}
+
+h2 {
+	color:black;
+}
+
+p {
+	color:black;
+}
