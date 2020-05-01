@@ -8,7 +8,7 @@ import {HttpService} from '../../../shared/services/http.service';
 import{environment} from '../../../../environments/environment'
 
 @Component({
-  
+
   templateUrl: '../pages/loginsignup.component.html',
   styleUrls: ['../loginsignup.component.css']
 })
@@ -33,6 +33,7 @@ export class LoginsignupComponent implements OnInit {
 
   constructor(private router: Router, private _route:ActivatedRoute,private transferService:DataService,
     private dialog: MatDialog,private httpService:HttpService) { 
+    private dialog: MatDialog,private loginsignupservice:LoginsignupService) {
 
       transferService.setData(this.signupModel.emailid);
     }
@@ -55,7 +56,7 @@ export class LoginsignupComponent implements OnInit {
     let url = `${environment.Url}/api/signup`;
     this.httpService.post(url,this.signupModel).subscribe(
       res =>  {
-      this.transferService.setData(this.signupModel.emailid);   
+      this.transferService.setData(this.signupModel.emailid);
       this.response = JSON.parse(JSON.stringify(res));
         if(this.response.error==null || this.response.error=="")
            this.router.navigateByUrl('/editProfile');
@@ -95,9 +96,9 @@ export class LoginsignupComponent implements OnInit {
     });
   }
 
- 
 
-  
+
+
   ngOnInit(): void {
   }
 

@@ -3,18 +3,22 @@
   color:red;
 }
 
+#reSendMessage
+{
+  color:orange;
+}
 
 h4,.container,label{
 	color: #ffffff;
 }
 
 .container {
-	
+
 
 	padding: 40px;
 
 
-	
+
 }
 
 .field-icon {
@@ -32,5 +36,8 @@ section {
 	background-size: cover;
 	height : 100vh;
 	background-attachment: fixed;
-	
+
+}
+p{
+  color:white;
 }

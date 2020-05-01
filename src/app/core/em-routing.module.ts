@@ -1,8 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {HomeComponent} from './../modules/home/components/home.component';
-import {LoginsignupComponent} from './../modules/signuplogin/components/loginsignup.component';
-import {ResetComponent} from './../modules/signuplogin/components/reset.component';
+
 const routes: Routes = [
   {
     path:'',
@@ -10,12 +9,9 @@ const routes: Routes = [
   },
   {
     path:'loginsignup',
-    component:LoginsignupComponent
+    loadChildren: './../modules/signuplogin/loginsignup.module#LoginSignUpModule'
   },
-  {
-    path:'reset',
-    component:ResetComponent
-  },
+
 ];
 
 @NgModule({

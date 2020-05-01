@@ -17,6 +17,7 @@
       response:any;
       isHidden: boolean = true;
       code:any;
+      reSendMessage: string;
       emailid:string;
       message:string;
       error:any=[];
@@ -57,9 +58,26 @@
               console.error('error caught in component');
               console.log(err);
               this.error=err;
-              //throw err;
           });
         }
+        resendCode(): void {
+
+      this.resetPassword.emailid = this.emailid;
+      console.log(this.resetPassword.emailid);
+      let url = "http://localhost:8787/forgotPassword";
+      this.http.post(url, this.resetPassword.emailid).subscribe(
+          res => {
+              this.response = JSON.parse(JSON.stringify(res));
+              if (this.response.error == null || this.response.error == "") {
+                  this.router.navigateByUrl('/reset');
+                  this.reSendMessage = "We've sent you another code.";
+              }
+          },
+          err => {
+              alert("Sorry an error occured");
+          });
+  }
+
         //function call to save the new password of the customer to the database.
         saveNewPassword():void{
           this.resetPassword.code=this.code;
