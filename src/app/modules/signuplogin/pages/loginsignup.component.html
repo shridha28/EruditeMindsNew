@@ -2,20 +2,20 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <section>
-  
+
 <div class="container">
-   
+
   <div class="row">
-  
+
     <div class="col-md-4">
           <h2><label for="name">Login</label></h2>
-      <form name="loginForm" #loginForm="ngForm" (submit)="loginForm.form.valid && login()"  
+      <form name="loginForm" #loginForm="ngForm" (submit)="loginForm.form.valid && login()"
       novalidate class="feedback-form">
         <!-- Name -->
         <div *ngIf="loginError" class="alert alert-danger">
           {{loginError}}
         </div>
-        
+
         <div>
         <div class="form-group">
           <label for="name">Email-ID</label>
@@ -57,7 +57,7 @@
                  " style="color:red">
                   Password is required.
                 </div>
-              
+
               </div>
                 <p>
                   <b><a href="" style="color:dodgerblue"
@@ -74,10 +74,25 @@
      <div class="col-md-4"></div>
       <div class="col-md-4">
        <h2><label for="name">Sign Up</label></h2>
-      <form name="signUpform" #f="ngForm" (submit)="f.form.valid && signupCustomer()" 
+      <form name="signUpform" #f="ngForm" (submit)="f.form.valid && signupCustomer()"
       novalidate class="feedback-form">
       <div *ngIf="response" class="alert alert-danger">
         {{response.error}}
+      </div>
+      <div class="form-group">
+        <label for="name">UserName</label>
+        <input ngModel type="text"
+               id="name"
+               class="form-control form-control-sm "
+               name="username"
+               placeholder="Your Name"
+               [(ngModel)]="signupModel.username"
+               #username="ngModel"
+               [ngClass]="{'is-invalid':f.submitted && username.invalid}"
+               required/>
+               <div *ngIf="username.errors && f.submitted" style="color:red">
+                Username is required.
+              </div>
       </div>
         <div class="form-group">
          <label for="emailid">Email-ID</label>
@@ -87,21 +102,21 @@
                  class="form-control"
                  name="emailid"
                  placeholder="Your email-ID"
-                 [(ngModel)]="signupModel.emailid" 
+                 [(ngModel)]="signupModel.emailid"
                  #emailname="ngModel"
                  [ngClass]="{'is-invalid':f.submitted && emailname.invalid}"
                  required/>
-                   
+
                  <div *ngIf="emailname.errors && f.submitted" style="color:red">
                   Email-ID is required.
                 </div>
-               
+
         </div>
-        
+
         <div class="form-group">
-          
-        <label for="password">Password</label> 
-        <i class="fa fa-fw fa-info-circle" title="                 
+
+        <label for="password">Password</label>
+        <i class="fa fa-fw fa-info-circle" title="
             -Atleast 8 characters.
 -Atleast one lowercase letter.
 -Atleast one uppercase letter.
@@ -116,12 +131,12 @@
                  [(ngModel)]="signupModel.password"
                  #passwname="ngModel"
                  [ngClass]="{'is-invalid':f.submitted && passwname.invalid}"
-                 required 
-                 />  
+                 required
+                 />
                 <div class="input-group-append" (click)="showPassword(password1, 1)">
                   <span class="input-group-text">  <i  [ngClass]="toggle1 ? 'fa fa-eye' : 'fa fa-eye-slash'" aria-hidden="true"></i>
                   </span>
-                </div> 
+                </div>
               </div>
                  <div *ngIf="passwname.errors?.required && f.submitted
                  " style="color:red">
@@ -151,7 +166,7 @@
             <div class="input-group-append" (click)="showPassword(password2, 2)">
                <span class="input-group-text" >  <i [ngClass]="toggle2 ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
                   </span>
-              </div> 
+              </div>
           </div>
                      <div *ngIf="
                       passwrname.errors?.required && f.submitted" style="color:red">
@@ -162,7 +177,7 @@
                       Password and Confirm Password Do Not Match
                     </div>
 
-                    
+
             </div>
 
         <button type="submit" class="btn btn-info pull-right">
@@ -172,10 +187,10 @@
 
 
       </form>
-      
+
     </div>
-    
-   
+
+
   </div>
 
 </div>

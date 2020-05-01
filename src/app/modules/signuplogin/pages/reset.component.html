@@ -1,9 +1,15 @@
+<br/>&nbsp;
+<div id="reSendMessage" *ngIf="reSendMessage">
+    <i class="fa fa-check-circle"></i> {{reSendMessage}}
+</div>
+
+
 <div *ngIf="isHidden">
    <h2>
       <p><b>We just sent you a verification code</b></p>
    </h2>
-   We just sent a verification code to your email. If you don't see our email in your inbox, check your spam folder
-   <br/>&nbsp;
+  <p>We just sent a verification code to your email. If you don't see our email in your inbox, check your spam folder</p>
+
 </div>
 <div class="container" *ngIf="isHidden">
    <div class="row" *ngIf="error.length>0">
@@ -20,10 +26,6 @@
             <label for="code"></label>
             <input [(ngModel)]="code" type="text" id="code" class="form-control" name="code" required #codeInput="ngModel" [ngClass]="{'is-invalid':verificationForm.submitted && codeInput.invalid}" placeholder="Enter Code" />
          </div>
-         <div *ngIf="
-            codeInput.errors?.required && verificationForm.submitted" style="color:red">
-            Please enter the code.
-         </div>
          <div id="error" *ngIf="message">
             <p>{{message}}</p>
          </div>
@@ -33,6 +35,12 @@
          <span>Submit</span>
          </button>
          </form>
+          &nbsp;
+         <div>
+          Didn't receive the code?<button type="submit" class="btn btn-info" (click)="resendCode()">
+          <span>Resend</span>
+              </button>
+        </div>
       </div>
    </div>
 </div>
