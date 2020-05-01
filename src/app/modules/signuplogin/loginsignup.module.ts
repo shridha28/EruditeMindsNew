@@ -7,10 +7,10 @@ import { MatDialogModule} from '@angular/material/dialog';
 import { MatFormFieldModule} from '@angular/material/form-field';
 import { MatButtonModule} from '@angular/material/button';
 import { MatInputModule } from '@angular/material/input';
-import {LoginsignupService} from '../../shared/services/loginsignup.service';
 import {ForgotPasswordDialog} from '../signuplogin/components/forgotpassword.component';
 import {HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http';
 import { GlobalHttpInterceptorService} from '../../core/interceptors/global-http-interceptor.service';
+import { HttpService } from '../../shared/services/http.service';
 @NgModule({
   declarations: [
     LoginsignupComponent,
@@ -26,7 +26,7 @@ import { GlobalHttpInterceptorService} from '../../core/interceptors/global-http
     MatFormFieldModule,
     HttpClientModule
   ],
-  providers: [LoginsignupService,{ provide: HTTP_INTERCEPTORS, useClass: GlobalHttpInterceptorService, multi: true  }],
+  providers: [HttpService,{ provide: HTTP_INTERCEPTORS, useClass: GlobalHttpInterceptorService, multi: true  }],
   entryComponents: [ForgotPasswordDialog],
   bootstrap: [LoginsignupComponent]
 })

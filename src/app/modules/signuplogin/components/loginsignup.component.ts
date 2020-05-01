@@ -1,11 +1,11 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { HttpClient,HttpHeaders } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
 import {Router, ActivatedRoute} from '@angular/router';
 import {DataService} from '../../../shared/services/data-service.service';
 import {MatDialog} from '@angular/material/dialog';
 import {ForgotPasswordDialog} from './forgotpassword.component';
-import {LoginsignupService} from '../../../shared/services/loginsignup.service';
-
+import {HttpService} from '../../../shared/services/http.service';
+import{environment} from '../../../../environments/environment'
 
 @Component({
   
@@ -18,6 +18,7 @@ export class LoginsignupComponent implements OnInit {
      authenticated:boolean;
      toggle1: boolean = false;
      toggle2: boolean = false;
+     toggle3: boolean = false;
 
   signupModel:SignUpViewModel={
     username:'',
@@ -30,20 +31,19 @@ export class LoginsignupComponent implements OnInit {
     password:''
   }
 
-  constructor(private http:HttpClient,
-    private router: Router, private _route:ActivatedRoute,private transferService:DataService,
-    private dialog: MatDialog,private loginsignupservice:LoginsignupService) { 
+  constructor(private router: Router, private _route:ActivatedRoute,private transferService:DataService,
+    private dialog: MatDialog,private httpService:HttpService) { 
 
       transferService.setData(this.signupModel.emailid);
     }
 
   login():void{
-    let url = "http://localhost:8787/api/login";
+    let url = `${environment.Url}/api/login`;
     const headers = new HttpHeaders(this.loginModel ? {
       authorization : 'Basic ' + btoa(this.loginModel.emailId + ':' + this.loginModel.password)
   } : {});
 
-  this.http.get(url, {headers: headers,observe:'response'}).subscribe(response => {
+  this.httpService.getWithHeaders(url,headers).subscribe(response => {
       if(response!=null && response.status==200)
         this.router.navigateByUrl('/activities');
   },error=>{
@@ -52,8 +52,9 @@ export class LoginsignupComponent implements OnInit {
   }
 
   signupCustomer():void{
-    this.loginsignupservice.signupCustomer(this.signupModel).subscribe(res =>  {
- 
+    let url = `${environment.Url}/api/signup`;
+    this.httpService.post(url,this.signupModel).subscribe(
+      res =>  {
       this.transferService.setData(this.signupModel.emailid);   
       this.response = JSON.parse(JSON.stringify(res));
         if(this.response.error==null || this.response.error=="")
@@ -63,7 +64,7 @@ export class LoginsignupComponent implements OnInit {
      });
    }
 
-  public showPassword(input_password, num) {
+   public showPassword(input_password, num) {
     if(input_password.type=='password') {
       input_password.type = 'text';
     } else {
@@ -71,8 +72,10 @@ export class LoginsignupComponent implements OnInit {
     }
     if(num==1) {
       this.toggle1 = !this.toggle1;
-    } else {
+    } else if(num==2){
       this.toggle2 = !this.toggle2;
+    } else {
+      this.toggle3 = !this.toggle3;
     }
 
   }

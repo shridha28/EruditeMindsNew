@@ -127,6 +127,13 @@ h3
 }
 
 
+h1 {
+    font-family: 'Comic Sans MS', 'cursive', 'sans-serif';
+    font-size: 30px;
+    font-weight: 300; color:goldenrod;
+}
+
+
 /*--------------------------------*/
 /*----------Navigation------------*/
 /*--------------------------------*/
@@ -135,7 +142,6 @@ h3
     float: right;
     list-style: none;
     margin-top: 50px;
-    
 }
 .main-nav li
 {
@@ -152,7 +158,7 @@ h3
     color:#fff; 
     text-transform: uppercase;
     word-spacing: 2px;
-    font-size: 90%;
+    font-size: 20px;
     border-bottom: 2px solid transparent;
     transition: border-bottom 0.2s;
 }
@@ -191,7 +197,7 @@ section {
 
 body {
 	background-image: linear-gradient(rgba(0, 0, 0, 0.43),
-	rgba(0, 0, 0, 0.43)), url("./../../assets/mainpg_header.jpg");
+	rgba(0, 0, 0, 0.43)), url("../../assets/mainpg_header.jpg");
 	background-position: center;
 	background-size: cover;
 	height : 100vh;
@@ -213,3 +219,4 @@ body {
     display: block;
     margin-bottom: 10px;
 }
+
