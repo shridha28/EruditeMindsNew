@@ -16,6 +16,7 @@ html
 }
 .row
 {
+
     max-width: 1140px;
     margin: 0 auto;
 }
@@ -144,7 +145,7 @@ h1 {
     margin-left: auto ;
     margin-right: 30px;
     margin-bottom: 0px;
-    
+
 }
 .main-nav li
 {
@@ -161,7 +162,7 @@ h1 {
     color:#fff;
     text-transform: uppercase;
     word-spacing: 2px;
-    font-size: 20px;
+    font-size: 17px;
     border-bottom: 2px solid transparent;
     transition: border-bottom 0.2s;
 }
@@ -199,7 +200,7 @@ section {
 }
 
 body {
-//	background-image: linear-gradient(rgba(0, 0, 0, 0.43),
+  background-image: linear-gradient(rgba(0, 0, 0, 0.43),
 	rgba(0, 0, 0, 0.43)), url("./../../assets/mainpg_header.jpg");
 	background-position: center;
 	background-size: cover;
@@ -223,3 +224,89 @@ body {
     margin-bottom: 10px;
 }
 
+
+/*--------Footer-----------------------*/
+footer
+{
+    background-color: #333;
+    padding:40px;
+    font-size: 80;
+}
+
+
+.footer-row
+{
+    list-style: none;
+    float:left;
+
+}
+.social-links
+{
+    list-style: none;
+    float:right;
+}
+.footer-row li,
+.social-links li
+{
+    display: inline-block;
+    margin-right: 20px;
+}
+.footer-row li:last-child,
+.social-links li:last-child
+{
+    margin-right: 0;
+
+}
+
+.footer-row li a:link,
+.footer-row li a:visited,
+.social-links li a:link,
+.social-links li a:visited{
+    text-decoration: none;
+    border:none;
+    color:#888;
+    transition: color 0.2s;
+}
+.footer-row li a:hover,
+.footer-row li a:active
+{
+    color:#e0dcdc;
+
+}
+footer p
+{
+    color:#888;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.social-links li a:link,
+.social-links li a:visited
+{
+    font-size: 160%;
+
+}
+.social-facebook:hover
+{
+    color:#3b5998;
+
+}
+.social-twitter,
+.social-instagram,
+.social-googleplus,
+.social-facebook
+{
+    transition: color 0.2s;
+}
+.social-twitter:hover
+{
+    color:#00aced;
+}
+.social-instagram:hover
+{
+    color:#517fa4;
+}
+.social-googleplus:hover
+{
+    color:#dd4b39;
+}

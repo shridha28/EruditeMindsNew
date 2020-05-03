@@ -1,3 +1,7 @@
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
 <br/>&nbsp;
 <div id="reSendMessage" *ngIf="reSendMessage">
     <i class="fa fa-check-circle"></i> {{reSendMessage}}
@@ -68,7 +72,7 @@
             <div class="input-group">
                <input passwordStrength ngModel [(ngModel)]="resetPassword.password" type="password" #passwordone id="newpassword" class="form-control" name="newpassword" placeholder="Enter new password" #newpasswordr="ngModel" [ngClass]="{'is-invalid':newPasswordForm.submitted && newpasswordr.invalid}" required />
                <div class="input-group-append" (click)="showPassword(passwordone, 1)">
-                  <span class="input-group-text">  <i [ngClass]="toggle1 ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
+                  <span class="input-group-text">  <i [ngClass]="toggle1 ? 'fa fa-eye' : 'fa fa-eye-slash'" aria-hidden="true"></i>
                   </span>
                </div>
             </div>
@@ -87,7 +91,7 @@
                <input validatePassword="newpassword" ngModel type="password" #passwordtwo id="retypepassword" class="form-control" name="retypepassword" placeholder="Retype new password" #retypedpassword="ngModel" [ngClass]="{'is-invalid':newPasswordForm.submitted && retypedpassword.invalid
                && newpasswordr.valid}" required/>
                <div class="input-group-append" (click)="showPassword(passwordtwo, 2)">
-                  <span class="input-group-text">  <i [ngClass]="toggle2 ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
+                  <span class="input-group-text">  <i  [ngClass]="toggle2 ? 'fa fa-eye' : 'fa fa-eye-slash'" aria-hidden="true"></i>
                   </span>
                </div>
             </div>
