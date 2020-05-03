@@ -67,7 +67,11 @@ export class EditprofileComponent implements OnInit {
    this.eProfileModel.emailid = this.email_Id;
    this.eProfileModel.technologies=JSON.stringify(this.technologies);
    var uploadData=new FormData();
+
+   if(this.selectedFile!=null)
+   {
    uploadData.append('myFile',this.selectedFile,this.selectedFile.name);
+   }  
    var value=JSON.stringify( this.eProfileModel);
    uploadData.append('model',value);
    let url = "http://localhost:8787/api/updateProfile";

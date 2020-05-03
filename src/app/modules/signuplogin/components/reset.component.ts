@@ -45,7 +45,7 @@
           params = params.append('emailId', this.emailid);
 
           let url=`${environment.Url}/resetform`;
-          
+
           this.httpService.getWithParams(url,params).subscribe(
             res =>  {
               this.response = JSON.parse(JSON.stringify(res));
@@ -64,8 +64,8 @@
 
       this.resetPassword.emailid = this.emailid;
       console.log(this.resetPassword.emailid);
-      let url = "http://localhost:8787/forgotPassword";
-      this.http.post(url, this.resetPassword.emailid).subscribe(
+      let url = `${environment.Url}/forgotPassword`;
+      this.httpService.post(url, this.resetPassword.emailid).subscribe(
           res => {
               this.response = JSON.parse(JSON.stringify(res));
               if (this.response.error == null || this.response.error == "") {
