@@ -11,11 +11,15 @@ import {ForgotPasswordDialog} from '../signuplogin/components/forgotpassword.com
 import {HttpClientModule,HTTP_INTERCEPTORS} from '@angular/common/http';
 import { GlobalHttpInterceptorService} from '../../core/interceptors/global-http-interceptor.service';
 import { HttpService } from '../../shared/services/http.service';
+import {ConfirmEqualValidatorDirective} from '../../shared/directives/confirm-equal-validator.directive';
+import {PasswordValidatorDirective} from '../../shared/directives/confirm-equal-validator.directive';
 @NgModule({
   declarations: [
     LoginsignupComponent,
     ResetComponent,
-    ForgotPasswordDialog
+    ForgotPasswordDialog,
+    ConfirmEqualValidatorDirective,
+    PasswordValidatorDirective
   ],
   imports: [
     CommonModule,
