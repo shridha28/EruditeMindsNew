@@ -11,7 +11,7 @@
          novalidate class="feedback-form" (submit)="f.form.valid && submit()">
          <div class="form-group">
             <label class="hoverable" for="fileInput">
-               <img [src]="url1 ? url1 : 'https://www.w3schools.com/howto/img_avatar.png'">
+               <img [src]="dataUrl ? dataUrl : 'https://www.w3schools.com/howto/img_avatar.png'">
                <div class="background"></div>
             </label>
             <p>Upload your profile picture here</p>
