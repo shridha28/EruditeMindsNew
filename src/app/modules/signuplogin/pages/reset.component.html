@@ -37,7 +37,6 @@
       <div class="offset-3"></div>
       <div class="col-md-3">
          <form name="form" #verificationForm="ngForm" novalidate (submit)="verificationForm.form.valid && verifyCode()">
-<<<<<<< HEAD
             <!--Code-->
             <div class="form-group">
                <label for="code"></label>
@@ -60,28 +59,6 @@
                <span>Resend</span>
             </button>
          </div>
-=======
-         <!--Code-->
-         <div class="form-group">
-            <label for="code"></label>
-            <input [(ngModel)]="code" type="text" id="code" class="form-control" name="code" required #codeInput="ngModel" [ngClass]="{'is-invalid':verificationForm.submitted && codeInput.invalid}" placeholder="Enter Code" />
-         </div>
-         <div id="error" *ngIf="message">
-            <p>{{message}}</p>
-         </div>
-         <br/>&nbsp;
-         <button type="submit" class="btn btn-info">
-         <i class="fa"></i>
-         <span>Submit</span>
-         </button>
-         </form>
-          &nbsp;
-         <div>
-          Didn't receive the code?<button type="submit" class="btn btn-info" (click)="resendCode()">
-          <span>Resend</span>
-              </button>
-        </div>
->>>>>>> eaa39b7da782d4528606e8120a21392c4740478b
       </div>
    </div>
 </div>
