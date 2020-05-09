@@ -31,8 +31,14 @@ export class LoginsignupComponent implements OnInit {
     password: ''
   }
 
+<<<<<<< HEAD
   constructor(private router: Router, private _route: ActivatedRoute, private transferService: DataService,
     private dialog: MatDialog, private httpService: HttpService) {
+=======
+  constructor(private router: Router, private _route:ActivatedRoute,private transferService:DataService,
+    private dialog: MatDialog,private httpService:HttpService) { 
+    private dialog: MatDialog,private loginsignupservice:LoginsignupService) {
+>>>>>>> eaa39b7da782d4528606e8120a21392c4740478b
 
     transferService.setData(this.signupModel.emailid);
   }
@@ -53,6 +59,7 @@ export class LoginsignupComponent implements OnInit {
 
   signupCustomer(): void {
     let url = `${environment.Url}/api/signup`;
+<<<<<<< HEAD
     this.httpService.post(url, this.signupModel).subscribe(
       res => {
         this.transferService.setData(this.signupModel.emailid);
@@ -67,6 +74,21 @@ export class LoginsignupComponent implements OnInit {
 
   public showPassword(input_password, num) {
     if (input_password.type == 'password') {
+=======
+    this.httpService.post(url,this.signupModel).subscribe(
+      res =>  {
+      this.transferService.setData(this.signupModel.emailid);
+      this.response = JSON.parse(JSON.stringify(res));
+        if(this.response.error==null || this.response.error=="")
+           this.router.navigateByUrl('/editProfile');
+         },
+      err=> {alert("Sorry an error occured");
+     });
+   }
+
+   public showPassword(input_password, num) {
+    if(input_password.type=='password') {
+>>>>>>> eaa39b7da782d4528606e8120a21392c4740478b
       input_password.type = 'text';
     } else {
       input_password.type = 'password';
