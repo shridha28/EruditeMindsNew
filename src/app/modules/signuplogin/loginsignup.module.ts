@@ -15,6 +15,8 @@ import {SignupRoutingModule} from './loginsignup-routing.module';
 import { HttpService } from '../../shared/services/http.service';
 import {ActivitiesComponent} from '../signuplogin/components/activities.component';
 import {MatChipsModule} from '@angular/material/chips';
+import {ConfirmEqualValidatorDirective} from '../../shared/directives/confirm-equal-validator.directive';
+import {PasswordValidatorDirective} from '../../shared/directives/confirm-equal-validator.directive';
 import { MatIconModule } from '@angular/material/icon';
 
 
@@ -26,6 +28,8 @@ import { MatIconModule } from '@angular/material/icon';
     ForgotPasswordDialog,
     EditprofileComponent,
     ActivitiesComponent
+    ConfirmEqualValidatorDirective,
+    PasswordValidatorDirective
   ],
   imports: [
     MatChipsModule,
