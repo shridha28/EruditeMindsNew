@@ -27,7 +27,7 @@ import { MatIconModule } from '@angular/material/icon';
     ResetComponent,
     ForgotPasswordDialog,
     EditprofileComponent,
-    ActivitiesComponent
+    ActivitiesComponent,
     ConfirmEqualValidatorDirective,
     PasswordValidatorDirective
   ],
