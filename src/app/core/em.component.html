@@ -1,3 +1,8 @@
+<!-- <div [@routeAnimations]="prepareRoute(outlet)"
+class="container">
+<app-navigation></app-navigation>
+<router-outlet #outlet="outlet"></router-outlet>
+</div> -->
 <!doctype html>
 <html lang="en">
          <head>
@@ -8,13 +13,11 @@
          <body>
             <header>
                 <nav>
-                        
+
                     <div class="row">
-                            <img src="./../../assets/horse.JPG" class="logo"> 
+                            <img src="./../../assets/horse.JPG" class="logo">
                             <a href="/"><h1 class="logo">ERUDITE MINDS</h1></a>
                        <ul class="main-nav">
-                      
-                           
                           <li><a routerLink="/wdwdo">What do we do</a></li>
                           <li><a href="#">Tutorials</a></li>
                           <li class="nav-item active">
@@ -25,6 +28,30 @@
                  </nav>
             </header>
             <router-outlet #outlet="outlet"></router-outlet>
-  
+
+            <footer>
+                    <div class="row">
+                       <div class="col span-1-of-2">
+                          <ul class="footer-row">
+                            <li><a href="#">About Us</a></li>
+                            <li><a href="#">Blog</a></li>
+                         </ul>
+
+                        </div>
+                        <div class="col span-1-of-2">
+                          <ul class="social-links">
+                            <li><a href="#">facebook</a></li>
+                            <li><a href="#">twitter</a></li>
+                            <li><a href="#">instagram</a></li>
+                          </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                    <p>
+                        Copyright &copy; 2020 by EruditeMinds. All rights reserved
+                    </p>
+                    </div>
+
+                </footer>
          </body>
-</html> 
+</html>

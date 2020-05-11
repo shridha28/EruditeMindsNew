@@ -1,0 +1,47 @@
+<div class="container">
+   <br>
+   <h1>
+      <p>Hello {{email_Id}} ! Need some more details and we are good to go!
+      <p>
+   </h1>
+   <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-8">
+         <form name="signUpform" #f="ngForm"
+         novalidate class="feedback-form" (submit)="f.form.valid && submit()">
+         <div class="form-group">
+            <label class="hoverable" for="fileInput">
+               <img [src]="dataUrl ? dataUrl : 'https://www.w3schools.com/howto/img_avatar.png'">
+               <div class="background"></div>
+            </label>
+            <p>Upload your profile picture here</p>
+            <input id="fileInput" type='file' (change)="onSelectFile($event)" enctype="multipart/form-data">
+         </div>
+         <div>
+            <p>Tags :Add up to 5 tags to describe the technologies that you are interested in</p>
+         </div>
+         <mat-form-field class="example-chip-list">
+            <mat-chip-list #chipList aria-label="Fruit selection">
+               <mat-chip *ngFor="let technology of technologies" [selectable]="selectable"
+               [removable]="removable" (removed)="remove(technology)">
+               {{technology.name}}
+               <mat-icon matChipRemove *ngIf="removable">cancel</mat-icon>
+               </mat-chip>
+               <input placeholder="New Technology..."
+               [matChipInputFor]="chipList"
+               [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+               [matChipInputAddOnBlur]="addOnBlur"
+               (matChipInputTokenEnd)="add($event)">
+            </mat-chip-list>
+         </mat-form-field>
+         <div class="form-group">
+            <label for="code"><p>Enter your LinkedIn Url</p></label>
+            <input  type="text" id="code" class="form-control" [(ngModel)]=eProfileModel.linkedInUrl name="code" placeholder="Enter Url" />
+         </div>
+         <button type="submit" class="btn btn-info pull-right">
+         <span>Submit</span>
+         </button>
+         </form>
+      </div>
+   </div>
+</div>
