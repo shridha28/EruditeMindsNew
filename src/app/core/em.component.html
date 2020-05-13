@@ -8,25 +8,11 @@ class="container">
          <head>
          <link href="https://fonts.googleapis.com/css?family=Lato:100,300,300i,400&display=swap" rel="stylesheet">
          <script src="https://unpkg.com/ionicons@4.5.10-0/dist/ionicons.js"></script>
-         <title>Wilkommen zu Heilbronn!</title>
+         <title>Welcome to EruditeMinds!</title>
          </head>
          <body>
-            <header>
-                <nav>
-
-                    <div class="row">
-                            <img src="./../../assets/horse.JPG" class="logo">
-                            <a href="/"><h1 class="logo">ERUDITE MINDS</h1></a>
-                       <ul class="main-nav">
-                          <li><a routerLink="/wdwdo">What do we do</a></li>
-                          <li><a href="#">Tutorials</a></li>
-                          <li class="nav-item active">
-                           <a class="nav-link" routerLink="/loginsignup" routerLinkActive="active">SignUp</a>
-                         </li>
-                       </ul>
-                    </div>
-                 </nav>
-            </header>
+      
+            <em-navigation></em-navigation>
             <router-outlet #outlet="outlet"></router-outlet>
 
             <footer>

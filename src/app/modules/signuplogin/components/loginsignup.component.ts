@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { HttpHeaders } from '@angular/common/http';
+import { HttpHeaders,HttpParams } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DataService } from '../../../shared/services/data-service.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -38,14 +38,20 @@ export class LoginsignupComponent implements OnInit {
   }
 
   login(): void {
+
     let url = `${environment.Url}/api/login`;
+    let params = new HttpParams();
+    params = params.append('emailId', this.loginModel.emailId);
     const headers = new HttpHeaders(this.loginModel ? {
       authorization: 'Basic ' + btoa(this.loginModel.emailId + ':' + this.loginModel.password)
     } : {});
 
-    this.httpService.getWithHeaders(url, headers).subscribe(response => {
-      if (response != null && response.status == 200)
+    this.httpService.getWithHeaders(url, headers,params).subscribe(response => {
+      if (response != null && response.status == 200){
+         let tokenStr = 'Bearer '+response.body.jwt;
+         sessionStorage.setItem('token', tokenStr);
         this.router.navigateByUrl('/activities');
+      } 
     }, error => {
       this.loginError = "Invalid Credentials.Please try again."
     });
