@@ -18,7 +18,7 @@ import {MatChipsModule} from '@angular/material/chips';
 import {ConfirmEqualValidatorDirective} from '../../shared/directives/confirm-equal-validator.directive';
 import {PasswordValidatorDirective} from '../../shared/directives/confirm-equal-validator.directive';
 import { MatIconModule } from '@angular/material/icon';
-
+import {LoaderComponent} from '../loader/components/loader.component';
 
 
 @NgModule({
@@ -29,7 +29,9 @@ import { MatIconModule } from '@angular/material/icon';
     EditprofileComponent,
     ActivitiesComponent,
     ConfirmEqualValidatorDirective,
-    PasswordValidatorDirective
+    PasswordValidatorDirective,
+    LoaderComponent
+    
   ],
   imports: [
     MatChipsModule,
