@@ -1,11 +1,8 @@
-
-
-
 *{
     margin:0;
     padding:0;
-    box-sizing: border-box;
-
+    box-sizing: border-box; 
+    
 }
 html
 {
@@ -18,38 +15,33 @@ html
 }
 .row
 {
-
     max-width: 1140px;
     margin: 0 auto;
 }
 
 .top-text
 {
-   position : absolute;
+   position: absolute;
    width: 1140px;
    top:50%;
    left:50%;
    transform: translate(-50%,-50%);
-
+   
 }
 
 /*----Headings-----------------------*/
 h1,h2,h3
 {
-
-    text-transform: uppercase;
+    
+    text-transform: uppercase;  
     font-weight: 300;
     
-
-
 }
 h1
 {
     color: #fff;
-    font-size: 150%;
-    word-spacing: 3px;
-    font-family:Gadget, sans-serif
-
+    font-size: 200%;
+    word-spacing: 3px;   
 }
 h2
 {
@@ -59,7 +51,7 @@ h2
     text-align: center;
     letter-spacing: 1px;
     padding : 10px;
-
+    
 }
 h2:after
 {
@@ -70,8 +62,8 @@ h2:after
     border-bottom: 2px solid #d35400;
     content:" ";
     margin-top: 30px;
-
-
+    
+    
 }
 h3
 {
@@ -87,17 +79,17 @@ h3
     padding: 10px 30px;
     font-weight: 350;
     text-decoration: none;
-    border-radius:200px;
+    border-radius:200px;  
     transition: background-color 0.2s,border 0.2s;
-
+    
 }
 .btn-full:link,
 .btn-full:visited
 {
-    background-color: #d35400;
+    background-color: #d35400; 
     border: 1px solid #d35400;
     color:#fff;
-
+    
 }
 .btn-ghost:link,
 .btn-ghost:visited
@@ -110,69 +102,52 @@ h3
 .btn-full:active,
 .btn-full:hover
 {
-    background-color:  #b14600;
+    background-color:  #b14600;  
     color:#fff;
-
+    
 }
 .btn-ghost:active,
 .btn-ghost:hover
 {
-     background-color:  #b14600;
+     background-color:  #b14600;  
      border: 1px solid #b14600;
      color: #fff;
-}
-
-
-h1 {
-    font-family: "Roboto", Helvetica, Arial, sans-serif;
-    font-weight: 100;
-    font-size: 30px;
-    line-height: 30px;
 }
 
 
 /*--------------------------------*/
 /*----------Navigation------------*/
 /*--------------------------------*/
-
-nav{
-    background-color:none;
-
-}
 .main-nav
 {
+    float: right;
     list-style: none;
-    margin-top: 30px;
-    margin-left: auto ;
-    margin-right: 30px;
-    margin-bottom: 0px;
+    margin-top: 50px;
     
 }
 .main-nav li
 {
     display: inline-block;
     margin-left: 40px;
-
-
+    
+    
 }
 .main-nav li a:link,
 .main-nav li a:visited
 {
     padding: 8px 0;
     text-decoration: none;
-    color:#fff;
+    color:#fff; 
     text-transform: uppercase;
     word-spacing: 2px;
-    font-size: 15px;
+    font-size: 90%;
     border-bottom: 2px solid transparent;
     transition: border-bottom 0.2s;
 }
 .main-nav li a:hover,
 .main-nav li a:active
 {
-    border-bottom: 2px solid orange;
-    color:orange;
-
+    border-bottom: 2px solid #b14600;
 }
 
 .box
@@ -185,31 +160,13 @@ nav{
     height: 100px;
     width:auto;
     float: left;
-    border-radius: 70px;
-
-
+    border-radius: 200px;
+   
+   
 }
-
-section {
-	background-color: black;
-	background-position: center;
-	background-size: cover;
-	height : 70 vh;
-	background-attachment: fixed;
-
-
-}
-
-body {
-  background-image: linear-gradient(rgba(0, 0, 0, 0.43),
-	rgba(0, 0, 0, 0.43)), url("../modules/home/css/resources/css/images/dog.jpg");
-	background-position: center;
-	background-size: cover;
-	height : 100vh;
-	background-attachment: fixed;
-    height: 100vh;
-    
-
+section
+{
+    padding: 80px;
 }
 .long-copy
 {
@@ -227,37 +184,28 @@ body {
 }
 
 
-/*--------Footer-----------------------*/
+/*Footer*/
+
 footer
 {
     background-color: #333;
-    padding:30px;
+    padding: 40px;
     font-size: 80;
 }
-
-
-.footer-row
-{
+.footer-row{
+    
     list-style: none;
     float:left;
 
 }
-.social-links
-{
-    list-style: none;
-    float:right;
-}
+
+
 .footer-row li,
 .social-links li
 {
-    display: inline-block;
+/*This here helps in getting the two things in a row next to each other. */
+    display:inline-block; 
     margin-right: 20px;
-}
-.footer-row li:last-child,
-.social-links li:last-child
-{
-    margin-right: 0;
-
 }
 
 .footer-row li a:link,
@@ -269,38 +217,73 @@ footer
     color:#888;
     transition: color 0.2s;
 }
-.footer-row li a:hover,
-.footer-row li a:active
-{
-    color:#e0dcdc;
 
+.footer-row li a:hover,
+.social-links li a:hover
+{
+    text-decoration: none;
+    border:none;
+    color:#fff;
+    transition: color 0.2s;
 }
+.footer-row :last-child,
+.social-links:last-child
+{
+    margin-right:0; 
+}
+
 footer p
 {
-    color:#888;
     text-align: center;
-    margin-top: 10px;
+    margin-top:10px;
+    color: #888;
+    font-size: 18px;
+}
+
+.social-links
+{
+    list-style: none;
+    float:right;
+    
 }
 
 .social-links li a:link,
 .social-links li a:visited
 {
     font-size: 160%;
-
 }
 .social-facebook:hover
 {
-    color:#3b5998;
-
+    color: #3b5998;
 }
 
+.social-instagram:hover
+{
+ color:#517fa4;   
+}
 .social-instagram,
 .social-facebook
 {
     transition: color 0.2s;
 }
 
-.social-instagram:hover
+/*Section-Meals*/
+.section-meals
 {
-    color:#517fa4;
+    
 }
+
+.section-main
+{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.43),
+	rgba(0, 0, 0, 0.43)), url("../css/images/dog.jpg");
+    background-position: center;
+	background-size: cover;
+	height : 100vh;
+	background-attachment: fixed;
+    height: 100vh;
+    
+
+}
+
+

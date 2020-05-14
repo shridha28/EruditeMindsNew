@@ -1,0 +1,56 @@
+
+<div class="container">
+    <form id="contact" [formGroup]="loginForm" novalidate (submit)="login()">
+        <div *ngIf="loginError" class="alert alert-danger">
+                        {{loginError}}
+                    </div>
+      <h2>Login</h2>
+      <!--EMAIIL FIELD-->
+      <fieldset>
+        <div>
+            <div class="form-group">
+                <label for="name">Email-ID</label>
+                <input type="email" id="emailId" tabindex="2" class="form-control" name="emailId"
+                    (blur)="logValidationErrors(loginForm)" placeholder="Your email-ID"
+                    formControlName="emailId" required [ngClass]="{'is-invalid':loginFormErrors.emailId}" />
+                <small *ngIf="loginFormErrors.emailId" class="invalid-feedback">
+                    {{loginFormErrors.emailId}}
+                </small>
+            </div>
+        </div>
+      </fieldset>
+      <!--PASSWORD FIELD-->
+      <fieldset>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <div class="input-group">
+                <input type="password" class="form-control"  name="password" #displayPassword
+                    (blur)="logValidationErrors(loginForm)" placeholder="Your password"
+                    formControlName="password" required tabindex="2"
+                    [ngClass]="{'is-invalid': loginFormErrors.password}" />
+                <div  (click)="showPassword(displayPassword, 3)">
+                    <span class="input-group-text"> <i
+                            [ngClass]="toggle3 ? 'fa fa-eye' : 'fa fa-eye-slash'"
+                            aria-hidden="true"></i>
+                    </span>
+                </div>
+                <small *ngIf="loginFormErrors.password" class="invalid-feedback">
+                    {{loginFormErrors.password}}
+                </small>
+            </div>
+        </div>
+        <p>
+            <b><a href="" style="color:dodgerblue"
+                    (click)="$event.preventDefault(); openDialog()">Forgot
+                    Password?</a></b>
+        </p>
+    </fieldset>
+      <div class="row">
+        <div class="col-sm-6">
+          <fieldset>
+            <button name="submit" type="submit" class="btn btn-info" id="contact-submit" [disabled]="!loginForm.valid" >Submit</button>
+          </fieldset>
+        </div>
+      </div>
+    </form>
+  </div>

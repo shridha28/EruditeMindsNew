@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ForgotPasswordDialog } from './forgotpassword.component';
 import { HttpService } from '../../../shared/services/http.service';
 import { environment } from '../../../../environments/environment';
+import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 
 @Component({
 
@@ -19,6 +20,8 @@ export class LoginsignupComponent implements OnInit {
   toggle1: boolean = false;
   toggle2: boolean = false;
   toggle3: boolean = false;
+  signUpForm: FormGroup;
+
 
   signupModel: SignUpViewModel = {
     username: '',
@@ -26,29 +29,10 @@ export class LoginsignupComponent implements OnInit {
     emailid: ''
   }
 
-  loginModel: LoginViewModel = {
-    emailId: '',
-    password: ''
-  }
-
   constructor(private router: Router, private _route: ActivatedRoute, private transferService: DataService,
-    private dialog: MatDialog, private httpService: HttpService) {
+    private dialog: MatDialog, private httpService: HttpService, private formBuilder: FormBuilder) {
 
     transferService.setData(this.signupModel.emailid);
-  }
-
-  login(): void {
-    let url = `${environment.Url}/api/login`;
-    const headers = new HttpHeaders(this.loginModel ? {
-      authorization: 'Basic ' + btoa(this.loginModel.emailId + ':' + this.loginModel.password)
-    } : {});
-
-    this.httpService.getWithHeaders(url, headers).subscribe(response => {
-      if (response != null && response.status == 200)
-        this.router.navigateByUrl('/activities');
-    }, error => {
-      this.loginError = "Invalid Credentials.Please try again."
-    });
   }
 
   signupCustomer(): void {
@@ -80,27 +64,80 @@ export class LoginsignupComponent implements OnInit {
     }
 
   }
-
-
-  openDialog() {
-    const dialogRef = this.dialog.open(ForgotPasswordDialog, {
-      width: '400px',
-      disableClose: true,
-      data: {},
-      backdropClass: 'backdropBackground'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed');
-      console.log('Dialog closed');
-    });
-  }
-
-
-
+  //Reactive form Changes
 
   ngOnInit(): void {
+    this.signUpForm = this.formBuilder.group({
+      username: ['', Validators.required],
+      emailId: ['', Validators.required, Validators.email],
+      password: ['', Validators.required],
+      confirm_password: ['', Validators.required]
+
+    });
+
+    this.signUpForm.valueChanges.subscribe((data) => {
+      this.logValidationErrors(this.signUpForm);
+    });
+
   }
+  signUpErrorMessages = {
+
+    'username': {
+      'required': 'Username is required',
+
+    },
+
+    'emailId': {
+      'required': 'Email-Id is required',
+
+    },
+    'password':
+    {
+
+      'required': 'Password is required',
+
+    },
+    'confirm_password':
+    {
+      'required': 'Confirm your password',
+
+    }
+
+  };
+  signUpFormErrors = {
+    'username': '',
+    'emailId': '',
+    'password': '',
+    'confirm_password': ''
+  };
+  
+  logValidationErrors(group: FormGroup): void {
+    debugger;
+    Object.keys(group.controls).forEach((key: string) => {
+      const abstractControl = group.get(key);
+      if (abstractControl instanceof FormGroup) {
+        this.logValidationErrors(abstractControl);
+      }
+      else {
+        this.signUpFormErrors[key] = '';
+        if (abstractControl && !abstractControl.valid &&
+          (abstractControl.touched || abstractControl.dirty)) {
+          const messages = this.signUpErrorMessages[key];
+          for (const errorKey in abstractControl.errors) {
+            if (errorKey) {
+              this.signUpFormErrors[key] += messages[errorKey] + ' ';
+            }
+            
+          }
+        }
+      }
+    });
+
+  }
+ 
+
+
+
 
 }
 
@@ -108,10 +145,4 @@ export interface SignUpViewModel {
   username: string,
   password: string,
   emailid: string
-}
-
-
-export interface LoginViewModel {
-  emailId: string,
-  password: string
 }

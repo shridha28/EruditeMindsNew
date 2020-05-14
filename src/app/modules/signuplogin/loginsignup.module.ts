@@ -18,7 +18,8 @@ import {MatChipsModule} from '@angular/material/chips';
 import {ConfirmEqualValidatorDirective} from '../../shared/directives/confirm-equal-validator.directive';
 import {PasswordValidatorDirective} from '../../shared/directives/confirm-equal-validator.directive';
 import { MatIconModule } from '@angular/material/icon';
-
+import { ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './components/login.component';
 
 
 @NgModule({
@@ -29,9 +30,11 @@ import { MatIconModule } from '@angular/material/icon';
     EditprofileComponent,
     ActivitiesComponent,
     ConfirmEqualValidatorDirective,
-    PasswordValidatorDirective
+    PasswordValidatorDirective,
+    LoginComponent
   ],
   imports: [
+    ReactiveFormsModule,
     MatChipsModule,
     CommonModule,
     FormsModule,

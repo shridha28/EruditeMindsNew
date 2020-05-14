@@ -1,135 +1,90 @@
 <section>
-   <div class="container">
-      <div class="row">
-         <div class="col-md-4">
-            <h2><label for="name">Login</label></h2>
-            <form name="loginForm" #loginForm="ngForm" (submit)="loginForm.form.valid && login()" novalidate
-               class="feedback-form">
-               <!-- Name -->
-               <div *ngIf="loginError" class="alert alert-danger">
-                  {{loginError}}
-               </div>
-               <div>
-                  <div class="form-group">
-                     <label for="name">Email-ID</label>
-                     <input ngModel type="text" id="lemailId" class="form-control" name="lemailId"
-                        placeholder="Your email-ID" [(ngModel)]="loginModel.emailId" #loginEmail="ngModel"
-                        [ngClass]="{'is-invalid':loginForm.submitted && loginEmail.invalid}" required autofocus />
-                     <div *ngIf="loginEmail.errors && loginForm.submitted" style="color:red">
-                        Email-ID is required.
-                     </div>
-                  </div>
-               </div>
-               <div>
-                  <div class="form-group">
-                     <label for="password">Password</label>
-                     <div class="input-group">
-                        <input ngModel type="password" #password3 id="password" class="form-control" name="password"
-                           placeholder="Your password" [(ngModel)]="loginModel.password" #loginPassw="ngModel"
-                           [ngClass]="{'is-invalid':loginForm.submitted && loginPassw.invalid}" required />
-                        <div class="input-group-append" (click)="showPassword(password3, 3)">
-                           <span class="input-group-text"> <i [ngClass]="toggle3 ? 'fa fa-eye' : 'fa fa-eye-slash'"
-                                 aria-hidden="true"></i>
-                           </span>
-                        </div>
-                     </div>
-                     <div *ngIf="loginPassw.errors?.required && loginForm.submitted
-                    " style="color:red">
-                        Password is required.
-                     </div>
-                  </div>
-                  <p>
-                     <b><a href="" style="color:dodgerblue" (click)="$event.preventDefault(); openDialog()">Forgot
-                           Password</a></b>
-                  </p>
-               </div>
-               <div>
-                  <button type="submit" class="btn btn-info pull-right">
-                     <span>Login</span>
-                  </button>
-               </div>
-            </form>
+<div class="container">
+   <!--SignUp Form-->
+   <form id=contact name="signUpform" [formGroup]=signUpForm (submit)="signupCustomer()" novalidate
+      class="feedback-form">
+      <h2><label for="name">Sign Up</label></h2>
+      <div *ngIf="response" class="alert alert-danger">
+         {{response.error}}
+      </div>
+      <fieldset>
+         <div>
+            <div class="form-group">
+               <label for="name">Username</label>
+               <input type="text" id="username" tabindex="2" class="form-control" name="username"
+                  (blur)="logValidationErrors(signUpForm)" placeholder="Your username" formControlName="username"
+                  required [ngClass]="{'is-invalid':signUpFormErrors.username}" />
+               <small *ngIf="signUpFormErrors.username" class="invalid-feedback">
+                  {{signUpFormErrors.username}}
+               </small>
+            </div>
          </div>
-         <div class="col-md-4"></div>
-         <div class="col-md-4">
-            <h2><label for="name">Sign Up</label></h2>
-            <form name="signUpform" #f="ngForm" (submit)="f.form.valid && signupCustomer()" novalidate
-               class="feedback-form">
-               <div *ngIf="response" class="alert alert-danger">
-                  {{response.error}}
-               </div>
-               <div class="form-group">
-                  <label for="name">UserName</label>
-                  <input ngModel type="text" id="name" class="form-control form-control-sm " name="username"
-                     placeholder="Your Name" [(ngModel)]="signupModel.username"
-                     required />
-                  <!-- <div *ngIf="username.errors && f.submitted" style="color:red">
-                     Username is required.
-                  </div> -->
-               </div>
-               <div class="form-group">
-                  <label for="emailid">Email-ID</label>
-                  <input ngModel type="email" email id="emailid" class="form-control" name="emailid"
-                     placeholder="Your email-ID" [(ngModel)]="signupModel.emailid" #emailname="ngModel"
-                     [ngClass]="{'is-invalid':f.submitted && emailname.invalid}" required />
-                  <div *ngIf="emailname.errors && f.submitted" style="color:red">
-                     Email-ID is required.
-                  </div>
-               </div>
-               <div class="form-group">
-                  <label for="password">Password</label>
-                  <i class="fa fa-fw fa-info-circle" title="
+      </fieldset>
+      <fieldset>
+         <div class="form-group">
+            <label for="emailid">Email-ID</label>
+            <input type="email" email id="emailid" tabindex="2" class="form-control" name="emailid" placeholder="Your email-ID"
+               formControlName="emailId" (blur)="logValidationErrors(signUpForm)"
+               [ngClass]="{'is-invalid':signUpFormErrors.emailId}" required />
+            <small *ngIf="signUpFormErrors.emailId" class="invalid-feedback">
+               {{signUpFormErrors.emailId}}
+            </small>
+         </div>
+      </fieldset>
+      <fieldset>
+         <div class="form-group">
+            <label for="password">Password</label>
+            <i class="fa fa-fw fa-info-circle" title="
                  -Atleast 8 characters.
                  -Atleast one lowercase letter.
                  -Atleast one uppercase letter.
                  -Atleast one digit.
                  -Atleast one special character." aria-hidden="true"></i>
-                  <div class="input-group">
-                     <input passwordStrength ngModel type="password" #password1 id="passwordr" class="form-control"
-                        name="passwordr" placeholder="Your password" [(ngModel)]="signupModel.password"
-                        #passwname="ngModel" [ngClass]="{'is-invalid':f.submitted && passwname.invalid}" required />
-                     <div class="input-group-append" (click)="showPassword(password1, 1)">
-                        <span class="input-group-text"> <i [ngClass]="toggle1 ? 'fa fa-eye' : 'fa fa-eye-slash'"
-                              aria-hidden="true"></i>
-                        </span>
-                     </div>
-                  </div>
-                  <div *ngIf="passwname.errors?.required && f.submitted
-                 " style="color:red">
-                     Password is required.
-                  </div>
-                  <div *ngIf="!passwname.errors?.required">
-                     <div *ngIf="passwname.errors?.invalidp && f.submitted" style="color:red">
-                        Password Invalid. Please refer to the info.
-                     </div>
-                  </div>
+            <div class="input-group">
+               <input  type="password" tabindex="2" #password1 id="passwordr" class="form-control" name="passwordr"
+                  placeholder="Your password" formControlName="password" (blur)="logValidationErrors(signUpForm)"
+                  [ngClass]="{'is-invalid': signUpFormErrors.password}" required />
+               <div class="input-group-append" (click)="showPassword(password1, 1)">
+                  <span class="input-group-text"> <i [ngClass]="toggle1 ? 'fa fa-eye' : 'fa fa-eye-slash'"
+                        aria-hidden="true"></i>
+                  </span>
                </div>
-               <div class="form-group">
-                  <label for="repassword">Confirm Password</label>
-                  <div class="input-group">
-                     <input validatePassword="passwordr" ngModel type="password" #password2 id="repassword"
-                        class="form-control" name="repassword" placeholder="Retype your password" #passwrname="ngModel"
-                        [ngClass]="{'is-invalid':f.submitted && passwrname.invalid
-                 && emailname.valid &&
-                 passwname.valid}" required />
-                     <div class="input-group-append" (click)="showPassword(password2, 2)">
-                        <span class="input-group-text"> <i [ngClass]="toggle2 ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
-                        </span>
-                     </div>
-                  </div>
-                  <div *ngIf="
-                 passwrname.errors?.required && f.submitted" style="color:red">
-                     Please confirm your password.
-                  </div>
-                  <div *ngIf="passwrname.errors?.notEqual && f.submitted" style="color:red">
-                     Password and Confirm Password Do Not Match
-                  </div>
-               </div>
-               <button type="submit" class="btn btn-info pull-right">
-                  <span>Register</span>
-               </button>
-            </form>
+               <small *ngIf="signUpFormErrors.password" class="invalid-feedback">
+                  {{signUpFormErrors.password}}
+               </small>
+            </div>
+
          </div>
+      </fieldset>
+      <fieldset>
+         <div class="form-group">
+            <label for="repassword">Confirm Password</label>
+            <div class="input-group">
+               <input validatePassword="passwordr" tabindex="2" type="password" #password2 id="repassword" class="form-control"
+                  name="repassword" placeholder="Retype your password" formControlName="confirm_password"
+                  [ngClass]="{'is-invalid':signUpFormErrors.confirm_password}" (blur)="logValidationErrors(signUpForm)"
+                  required />
+               <div class="input-group-append" (click)="showPassword(password2, 2)">
+                  <span class="input-group-text"> <i [ngClass]="toggle2 ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
+                  </span>
+               </div>
+               <small *ngIf="signUpFormErrors.confirm_password" class="invalid-feedback">
+                  {{signUpFormErrors.confirm_password}}
+               </small>
+            </div>
+         </div>
+      </fieldset>
+      <div>
+         Already have an account?
+         <a routerLink="/login">SignIn</a>
       </div>
-   </div>
+      <div class="row">
+         <div class="col-sm-6">
+           <fieldset>
+             <button name="submit" type="submit" class="btn btn-info" id="contact-submit" [disabled]="!signUpForm.valid" >Submit</button>
+           </fieldset>
+         </div>
+       </div>
+   </form>
+</div>
 </section>

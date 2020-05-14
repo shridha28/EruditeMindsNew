@@ -1,47 +1,5 @@
 
-
-section {
-	
-	background-color: black;
-	background-position: center;
-	background-size: cover;
-	height : 70 vh;
-	
-	
-	
-}
-#section3 {
-	background-color: black;
-	background-position: center;
-	background-size: cover;
-	height : 70 vh;
-	background-attachment: fixed;
-	
-	
-}
-
-
-.container {
-    z-index:-100;
-	padding: 40px;	
-}
-img {
-	border-radius: 25px;
-	height:400px; 
-	width:1060px;
-}
-
-#imgGit {
-	height:200px;
-	width:200px;
-	border-radius: 50%;
-
-}
-
-h2 {
-	color:black;
-}
-
-p {
-	color:black;
-}
+@import url("../home/css/resources/css/style.css");
+@import url("../home/css/vendors/css/Grid.css");
+@import url("../home/css/vendors/css/ionicons.min.css");
+@import url("../home/css/vendors/css/normalize.css");
