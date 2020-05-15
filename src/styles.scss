@@ -31,5 +31,16 @@ $EruditeMinds-theme: mat-light-theme($EruditeMinds-primary, $EruditeMinds-accent
 /* Importing Bootstrap SCSS file. */
 @import '~bootstrap/scss/bootstrap';
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+.body-css {
+  
+      background-position: center;
+      background-size: cover;
+      height : 100vh;
+      background-attachment: fixed;
+      margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+      
+  
+  }
+  

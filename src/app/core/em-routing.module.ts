@@ -8,7 +8,7 @@ const routes: Routes = [
     component:HomeComponent
   },
   {
-    path:'loginsignup',
+    path:'login',
     loadChildren: './../modules/signuplogin/loginsignup.module#LoginSignUpModule'
   },
 

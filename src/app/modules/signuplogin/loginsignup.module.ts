@@ -49,6 +49,6 @@ import { LoginComponent } from './components/login.component';
   ],
   providers: [HttpService,{ provide: HTTP_INTERCEPTORS, useClass: GlobalHttpInterceptorService, multi: true  }],
   entryComponents: [ForgotPasswordDialog],
-  bootstrap: [LoginsignupComponent]
+  bootstrap: [LoginComponent]
 })
 export class LoginSignUpModule { }

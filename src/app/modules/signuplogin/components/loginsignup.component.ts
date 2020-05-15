@@ -112,7 +112,6 @@ export class LoginsignupComponent implements OnInit {
   };
   
   logValidationErrors(group: FormGroup): void {
-    debugger;
     Object.keys(group.controls).forEach((key: string) => {
       const abstractControl = group.get(key);
       if (abstractControl instanceof FormGroup) {

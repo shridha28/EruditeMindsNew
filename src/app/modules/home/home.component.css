@@ -3,3 +3,10 @@
 @import url("../home/css/vendors/css/Grid.css");
 @import url("../home/css/vendors/css/ionicons.min.css");
 @import url("../home/css/vendors/css/normalize.css");
+
+
+::ng-deep .body-css { 
+    background-image: linear-gradient(rgba(0, 0, 0, 0.43),
+  rgba(0, 0, 0, 0.43)), url("../home/css/resources/css/images/dog.jpg");
+  
+  }

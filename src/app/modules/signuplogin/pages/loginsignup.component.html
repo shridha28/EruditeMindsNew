@@ -1,3 +1,4 @@
+
 <section>
 <div class="container">
    <!--SignUp Form-->
@@ -60,7 +61,7 @@
          <div class="form-group">
             <label for="repassword">Confirm Password</label>
             <div class="input-group">
-               <input validatePassword="passwordr" tabindex="2" type="password" #password2 id="repassword" class="form-control"
+               <input validatePassword=password1 tabindex="2" type="password" #password2 id="repassword" class="form-control"
                   name="repassword" placeholder="Retype your password" formControlName="confirm_password"
                   [ngClass]="{'is-invalid':signUpFormErrors.confirm_password}" (blur)="logValidationErrors(signUpForm)"
                   required />
@@ -71,6 +72,9 @@
                <small *ngIf="signUpFormErrors.confirm_password" class="invalid-feedback">
                   {{signUpFormErrors.confirm_password}}
                </small>
+               <small *ngIf="password2.errors?.notEqual" class="invalid-feedback">
+                Password and Confirm Password Do Not Match
+             </small>
             </div>
          </div>
       </fieldset>

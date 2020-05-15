@@ -275,8 +275,7 @@ footer p
 
 .section-main
 {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.43),
-	rgba(0, 0, 0, 0.43)), url("../css/images/dog.jpg");
+   
     background-position: center;
 	background-size: cover;
 	height : 100vh;
