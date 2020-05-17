@@ -2,20 +2,16 @@
   <header>
     <nav>
         <div class="row">
-           <img src="resources/images/logo.png" class="logo" alt="Logo">
+           <img src="../../assets/hello.png" class="logo" alt="Logo">
            <ul class="main-nav">
             <li><a href="#">What do we do?</a></li>
-            <li><a href="#">Join our Community</a></li>
+            <li><a class="nav-link" routerLink="/loginsignup" routerLinkActive="active">Join our Community</a></li>
             <li><a class="nav-link" routerLink="/login" routerLinkActive="active">Login</a>
             </li>
            </ul>
         </div>
      </nav>
-   <div class="top-text">
-     <h1>Welcome to the world of <b>Four-legged!</b></h1>
-     <a class="btn btn-full" href="#">Blog</a>
-     <a class="btn btn-ghost" href="#">Discover</a>
-   </div>
+   
 </header>
   <router-outlet #outlet="outlet"></router-outlet>
   <footer>
