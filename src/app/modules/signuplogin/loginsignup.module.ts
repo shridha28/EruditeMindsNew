@@ -24,14 +24,14 @@ import { LoginComponent } from './components/login.component';
 
 @NgModule({
   declarations: [
+    LoginComponent,
     LoginsignupComponent,
     ResetComponent,
     ForgotPasswordDialog,
     EditprofileComponent,
     ActivitiesComponent,
     ConfirmEqualValidatorDirective,
-    PasswordValidatorDirective,
-    LoginComponent
+    PasswordValidatorDirective
   ],
   imports: [
     ReactiveFormsModule,
@@ -49,6 +49,6 @@ import { LoginComponent } from './components/login.component';
   ],
   providers: [HttpService,{ provide: HTTP_INTERCEPTORS, useClass: GlobalHttpInterceptorService, multi: true  }],
   entryComponents: [ForgotPasswordDialog],
-  bootstrap: [LoginComponent]
+  bootstrap: []
 })
 export class LoginSignUpModule { }

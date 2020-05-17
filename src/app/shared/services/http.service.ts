@@ -27,8 +27,9 @@ export class HttpService {
   }
 
 
-  getWithHeaders(path: string, httpHeaders: HttpHeaders = new HttpHeaders()): Observable<any> {
-    return this.http.get(`${path}`, { headers:httpHeaders,observe: "response" })
+  getWithHeaders(path: string, httpHeaders: HttpHeaders = new HttpHeaders(),
+  httpParams:HttpParams = new HttpParams): Observable<any> {
+    return this.http.get(`${path}`, { headers:httpHeaders,observe: "response",params:httpParams })
       .pipe(catchError(this.formatErrors));
   }
 

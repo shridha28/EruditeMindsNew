@@ -6,11 +6,13 @@ import { AppComponent } from './em.component';
 import {HomeModule} from './../modules/home/home.module';
 import {LoginSignUpModule} from './../modules/signuplogin/loginsignup.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {NavigationComponent} from './../modules/navigation/navigation.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,

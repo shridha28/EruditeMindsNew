@@ -75,9 +75,13 @@ export class LoginsignupComponent implements OnInit {
 
     });
 
+
+
     this.signUpForm.valueChanges.subscribe((data) => {
       this.logValidationErrors(this.signUpForm);
     });
+
+    
 
   }
   signUpErrorMessages = {

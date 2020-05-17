@@ -1,0 +1,31 @@
+<header>
+        <nav>
+
+            <div class="row">
+                    <img src="./../../assets/horse.JPG" class="logo">
+                    <a href="/"><h1 class="logo">ERUDITE MINDS</h1></a>
+             <ul class="main-nav">
+                  <li>
+                      <a *ngIf="!loginService.isUserLoggedIn()" routerLink="/wdwdo">What do we do</a>
+                  </li>
+                  <li>
+                      <a  *ngIf="!loginService.isUserLoggedIn()" routerLink="#">Tutorials</a>
+                 </li>
+                  <li>
+                   <a *ngIf="!loginService.isUserLoggedIn()" routerLink="/loginsignup">SignUp/Login</a>
+                 </li>
+                <li>
+                  <a  *ngIf="loginService.isUserLoggedIn()" routerLink="/myProfile">Profile</a>
+                </li>
+                <li>
+                    <a  *ngIf="loginService.isUserLoggedIn()" routerLink="/messages">Messages</a>
+                </li>
+                <li>
+                    <a  *ngIf="loginService.isUserLoggedIn()" 
+                    (click)="logout()" routerLink="/logout">Logout</a>
+                </li>
+             </ul>
+            </div>
+         </nav>
+    </header>
+    

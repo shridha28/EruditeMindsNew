@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import { HttpHeaders } from '@angular/common/http';
+import { HttpHeaders,HttpParams } from '@angular/common/http';
 import { Router, ActivatedRoute } from '@angular/router';
 import { DataService } from '../../../shared/services/data-service.service';
 import { MatDialog } from '@angular/material/dialog';
@@ -12,7 +12,7 @@ import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 @Component({
   selector: 'em-login',
   templateUrl: '../pages/login.component.html',
-  styleUrls: ['../css/login.component.css']
+  styleUrls: ['../loginsignup.component.css']
 })
 export class LoginComponent implements OnInit {
 
@@ -82,11 +82,13 @@ export class LoginComponent implements OnInit {
   login(): void {
     this.submitted = true;
     let url = `${environment.Url}/api/login`;
+    let params = new HttpParams();
+    params = params.append('emailId', this.loginForm.value.emailId);
     const headers = new HttpHeaders(this.loginForm.value ? {
       authorization: 'Basic ' + btoa(this.loginForm.value.emailId + ':' + this.loginForm.value.password)
     } : {});
 
-    this.httpService.getWithHeaders(url, headers).subscribe(response => {
+    this.httpService.getWithHeaders(url, headers,params).subscribe(response => {
       if (response != null && response.status == 200)
         this.router.navigateByUrl('/activities');
     }, error => {
