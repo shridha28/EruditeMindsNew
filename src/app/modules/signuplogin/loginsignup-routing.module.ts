@@ -10,7 +10,7 @@ import { componentFactoryName } from '@angular/compiler';
 const routes: Routes = [
     {
     path:'',
-    component:LoginsignupComponent
+    component:LoginComponent
    },
      {
        path:'reset',

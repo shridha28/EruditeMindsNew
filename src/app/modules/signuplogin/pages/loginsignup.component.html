@@ -8,6 +8,7 @@
       <div *ngIf="response" class="alert alert-danger">
          {{response.error}}
       </div>
+       <!--USERNAME FIELD-->
       <fieldset>
          <div>
             <div class="form-group">
@@ -21,6 +22,7 @@
             </div>
          </div>
       </fieldset>
+       <!--EMAIL-ID FIELD-->
       <fieldset>
          <div class="form-group">
             <label for="emailid">Email-ID</label>
@@ -32,6 +34,7 @@
             </small>
          </div>
       </fieldset>
+      <!--PASSWORD FIELD-->
       <fieldset>
          <div class="form-group">
             <label for="password">Password</label>
@@ -42,10 +45,10 @@
                  -Atleast one digit.
                  -Atleast one special character." aria-hidden="true"></i>
             <div class="input-group">
-               <input  type="password" tabindex="2" #password1 id="passwordr" class="form-control" name="passwordr"
+               <input  type="password" tabindex="2" #displayPassword id="passwordr" class="form-control" name="passwordr"
                   placeholder="Your password" formControlName="password" (blur)="logValidationErrors(signUpForm)"
                   [ngClass]="{'is-invalid': signUpFormErrors.password}" required />
-               <div class="input-group-append" (click)="showPassword(password1, 1)">
+               <div class="input-group-append" (click)="showPassword(displayPassword, 1)">
                   <span class="input-group-text"> <i [ngClass]="toggle1 ? 'fa fa-eye' : 'fa fa-eye-slash'"
                         aria-hidden="true"></i>
                   </span>
@@ -57,24 +60,22 @@
 
          </div>
       </fieldset>
+      <!--CONFIRM-PASSWORD FIELD-->
       <fieldset>
          <div class="form-group">
             <label for="repassword">Confirm Password</label>
             <div class="input-group">
-               <input validatePassword=password1 tabindex="2" type="password" #password2 id="repassword" class="form-control"
+               <input  tabindex="2" type="password" #displayCpassword id="repassword" class="form-control"
                   name="repassword" placeholder="Retype your password" formControlName="confirm_password"
                   [ngClass]="{'is-invalid':signUpFormErrors.confirm_password}" (blur)="logValidationErrors(signUpForm)"
                   required />
-               <div class="input-group-append" (click)="showPassword(password2, 2)">
+               <div class="input-group-append" (click)="showPassword(displayCpassword, 2)">
                   <span class="input-group-text"> <i [ngClass]="toggle2 ? 'fa fa-eye' : 'fa fa-eye-slash'"></i>
                   </span>
                </div>
                <small *ngIf="signUpFormErrors.confirm_password" class="invalid-feedback">
                   {{signUpFormErrors.confirm_password}}
                </small>
-               <small *ngIf="password2.errors?.notEqual" class="invalid-feedback">
-                Password and Confirm Password Do Not Match
-             </small>
             </div>
          </div>
       </fieldset>
@@ -89,6 +90,6 @@
            </fieldset>
          </div>
        </div>
-   </form>
+        </form>
 </div>
 </section>

@@ -9,7 +9,7 @@ import {HttpService} from '../../../shared/services/http.service';
 @Component({
 
     selector: 'forgotcomponentdialog',
-    templateUrl: '../pages/forgotPassword.component.html',
+    templateUrl: '../pages/forgotpassword.component.html',
     styleUrls: ['../loginsignup.component.css']
   })
   export class ForgotPasswordDialog {
