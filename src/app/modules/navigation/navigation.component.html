@@ -2,17 +2,16 @@
         <nav>
 
             <div class="row">
-                    <img src="./../../assets/horse.JPG" class="logo">
-                    <a href="/"><h1 class="logo">ERUDITE MINDS</h1></a>
+                  <img src="../../assets/hello.png" class="logo" alt="Logo">
              <ul class="main-nav">
                   <li>
                       <a *ngIf="!loginService.isUserLoggedIn()" routerLink="/wdwdo">What do we do</a>
                   </li>
                   <li>
-                      <a  *ngIf="!loginService.isUserLoggedIn()" routerLink="#">Tutorials</a>
+                      <a  *ngIf="!loginService.isUserLoggedIn()" routerLink="/loginsignup">Join Our Community</a>
                  </li>
                   <li>
-                   <a *ngIf="!loginService.isUserLoggedIn()" routerLink="/loginsignup">SignUp/Login</a>
+                   <a *ngIf="!loginService.isUserLoggedIn()" routerLink="/login">Login</a>
                  </li>
                 <li>
                   <a  *ngIf="loginService.isUserLoggedIn()" routerLink="/myProfile">Profile</a>

@@ -1,19 +1,37 @@
+
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+
+}
+html
+{
+    background-color: white;
+    color:black;
+    font-family: 'Lato','Arial',sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+}
 .row
 {
 
     max-width: 1140px;
     margin: 0 auto;
 }
-header
+
+.top-text
 {
-    background-color: black;
-    background-position: center;
-    background-size: cover;
-    height: 13vh;
-    background-attachment: fixed;
+   position : absolute;
+   width: 1140px;
+   top:50%;
+   left:50%;
+   transform: translate(-50%,-50%);
 
 }
-
 
 /*----Headings-----------------------*/
 h1,h2,h3
@@ -33,18 +51,94 @@ h1
     font-family:Gadget, sans-serif
 
 }
+h2
+{
+    color: black;
+    font-size: 150%;
+    word-spacing: 1px;
+    text-align: center;
+    letter-spacing: 1px;
+    padding : 10px;
+
+}
+h2:after
+{
+    display: block;
+    width: 100px;
+    height: 2px;
+    margin: 0 auto;
+    border-bottom: 2px solid #d35400;
+    content:" ";
+    margin-top: 30px;
+
+
+}
+h3
+{
+    font-size: 100%;
+}
+
+/*---------------------------------*/
+        /*---Buttons----*/
+/*---------------------------------*/
+.btn
+{
+    display: inline-block;
+    padding: 10px 30px;
+    font-weight: 350;
+    text-decoration: none;
+    border-radius:200px;
+    transition: background-color 0.2s,border 0.2s;
+
+}
+.btn-full:link,
+.btn-full:visited
+{
+    background-color: #d35400;
+    border: 1px solid #d35400;
+    color:#fff;
+
+}
+.btn-ghost:link,
+.btn-ghost:visited
+{
+     border: 1px solid #d35400;
+     color: #fff;
+     margin-left: 10px;
+}
+
+.btn-full:active,
+.btn-full:hover
+{
+    background-color:  #b14600;
+    color:#fff;
+
+}
+.btn-ghost:active,
+.btn-ghost:hover
+{
+     background-color:  #b14600;
+     border: 1px solid #b14600;
+     color: #fff;
+}
 
 
 h1 {
-    font-family: 'Comic Sans MS', 'cursive', 'sans-serif';
+    font-family: "Roboto", Helvetica, Arial, sans-serif;
+    font-weight: 100;
     font-size: 30px;
-    font-weight: 300; color:goldenrod;
+    line-height: 30px;
 }
 
 
 /*--------------------------------*/
 /*----------Navigation------------*/
 /*--------------------------------*/
+
+nav{
+    background-color:none;
+
+}
 .main-nav
 {
     list-style: none;
@@ -52,12 +146,12 @@ h1 {
     margin-left: auto ;
     margin-right: 30px;
     margin-bottom: 0px;
-
+    
 }
 .main-nav li
 {
     display: inline-block;
-    margin-left: 40px;
+    margin-left: 50px;
 
 
 }
@@ -81,15 +175,116 @@ h1 {
 
 }
 
+.box
+{
+    padding: 1px;
+}
+
 .logo
 {
-    height: 100px;
+    height: 200px;
     width:auto;
-    float: left;
+    position: absolute;
+    left: 50px;
     border-radius: 70px;
+    
 
 
 }
 
+section {
+	background-color: black;
+	background-position: center;
+	background-size: cover;
+	height : 70 vh;
+	background-attachment: fixed;
 
 
+}
+
+.long-copy
+{
+    line-height: 145%;
+    width: 70%;
+    margin-left: 15%;
+    text-align: center;
+}
+.icon-big
+{
+    font-size: 300%;
+    color: #d35400;
+    display: block;
+    margin-bottom: 10px;
+}
+
+
+/*--------Footer-----------------------*/
+
+.footer-row
+{
+    list-style: none;
+    float:left;
+
+}
+.social-links
+{
+    list-style: none;
+    float:right;
+}
+.footer-row li,
+.social-links li
+{
+    display: inline-block;
+    margin-right: 20px;
+}
+.footer-row li:last-child,
+.social-links li:last-child
+{
+    margin-right: 0;
+
+}
+
+.footer-row li a:link,
+.footer-row li a:visited,
+.social-links li a:link,
+.social-links li a:visited{
+    text-decoration: none;
+    border:none;
+    color:#888;
+    transition: color 0.2s;
+}
+.footer-row li a:hover,
+.footer-row li a:active
+{
+    color:#e0dcdc;
+
+}
+footer p
+{
+    color:#888;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.social-links li a:link,
+.social-links li a:visited
+{
+    font-size: 160%;
+
+}
+.social-facebook:hover
+{
+    color:#3b5998;
+
+}
+
+.social-instagram,
+.social-facebook
+{
+    transition: color 0.2s;
+}
+
+.social-instagram:hover
+{
+    color:#517fa4;
+}

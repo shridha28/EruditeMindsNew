@@ -89,8 +89,11 @@ export class LoginComponent implements OnInit {
     } : {});
 
     this.httpService.getWithHeaders(url, headers,params).subscribe(response => {
-      if (response != null && response.status == 200)
+      if (response != null && response.status == 200){
+        let tokenStr = 'Bearer '+response.body.jwt;
+        sessionStorage.setItem('token', tokenStr);
         this.router.navigateByUrl('/activities');
+      }
     }, error => {
       this.loginError = "Invalid Credentials.Please try again."
     });
