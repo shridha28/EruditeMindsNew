@@ -23,15 +23,7 @@ html
     margin: 0 auto;
 }
 
-.top-text
-{
-   position : absolute;
-   width: 1140px;
-   top:50%;
-   left:50%;
-   transform: translate(-50%,-50%);
 
-}
 
 /*----Headings-----------------------*/
 h1,h2,h3
@@ -138,6 +130,19 @@ h1 {
 nav{
     background-color:none;
 
+}
+
+
+.top-text
+{
+   position: absolute;
+   width: 1500px;
+   font-size: 10px;
+   font-weight: 50;
+   left:70%;
+   top:50%;
+   transform: translate(-50%,-50%);
+   
 }
 .main-nav
 {
