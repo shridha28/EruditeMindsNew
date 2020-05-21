@@ -17,7 +17,10 @@
   
   }
 
+p{
 
+    display: inline-block;
+}
 
 *{
     margin:0;
@@ -51,11 +54,11 @@ span{
 .top-text
 {
    position: absolute;
-   width: 2000px;
-   font-size: 27px;
+   width: 1140px;
+   font-size: 17px;
    font-weight: 50;
    top:50%;
-   left:70%;
+   left:60%;
    transform: translate(-50%,-50%);   
 }
 
@@ -92,6 +95,7 @@ h3
 {
     font-size: 110%;
     margin-bottom: 15px;
+    color:#d35400;
     
     
 }
@@ -174,60 +178,6 @@ input[type=submit]:active
      color: #fff;
 }
 
-
-/*--------------------------------*/
-/*----------Navigation------------*/
-/*--------------------------------*/
-.main-nav
-{
-    float: right;
-    list-style: none;
-    margin-top: 50px;
-    
-}
-.main-nav li
-{
-    display: inline-block;
-    margin-left: 40px;
-    
-    
-}
-.main-nav li a:link,
-.main-nav li a:visited
-{
-    padding: 8px 0;
-    text-decoration: none;
-    color:#fff; 
-    text-transform: uppercase;
-    word-spacing: 2px;
-    font-size: 90%;
-    border-bottom: 2px solid transparent;
-    transition: border-bottom 0.2s;
-}
-.main-nav li a:hover,
-.main-nav li a:active
-{
-    border-bottom: 2px solid #b14600;
-}
-
-.box
-{
-    padding: 1px;
-}
-
-.logo
-{
-    height: 100px;
-    width:auto;
-    float: left;
-    border-radius: 200px;
-   
-   
-}
-
-
-
-
 .long-copy
 {
     line-height: 145%;
@@ -270,6 +220,11 @@ section
     background-color: #fff;
 
 }
+
+
+.section-features .row{
+    max-width: 1500px;
+}
 .section-main
 {
    
@@ -308,4 +263,53 @@ textarea
 input[type=checkbox]
 {
     margin: 10px 5px 10px 0px;  
+}
+
+
+
+/*--------------------------------------------------------------*/
+/* Gallery*/
+/*--------------------------------------------------------------*/
+.section-gallery
+{
+    padding: 0;
+    background-color: #ccc;
+}
+.animals-showcase
+{
+    /*This is to make the bullet points go*/
+    list-style: none;
+    width: 100%;
+}
+
+.animals-showcase li
+{
+    display: block;
+    float: left;
+  /*  Four images to fit in 100%*/
+    width: 25%;
+    
+}
+.animal-photo
+{
+    width:100%;
+    margin:0;
+    overflow: hidden;
+    background-color: #000;
+    
+    
+}
+.animal-photo img
+{
+   opacity: 0.7;
+    width:100%;
+   height: auto;
+/*---This is to zoom out an image when hovered--*/
+   transform: scale(1.15);
+    transition: transform 0.5s,opacity 0.5s; 
+}
+
+.animal-photo img:hover{
+    opacity: 1;
+   transform: scale(1.03);
 }

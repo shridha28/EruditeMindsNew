@@ -57,7 +57,6 @@ export class ResetComponent implements OnInit {
       },
       err => {
         console.error('error caught in component');
-        console.log(err);
         this.error = err;
       });
   }

@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SignUpViewModel } from './loginsignup.component';
 import { DataService } from '../../../shared/services/data-service.service';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Router } from '@angular/router';
@@ -40,8 +39,6 @@ export class EditprofileComponent implements OnInit {
     technologies: '',
     linkedInUrl: ''
   };
-
-  viewModel: SignUpViewModel;
 
   constructor(private transferService: DataService, private http: HttpClient,
     private router: Router) {
